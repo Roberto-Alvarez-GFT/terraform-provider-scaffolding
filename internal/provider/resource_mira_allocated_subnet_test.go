@@ -1,4 +1,4 @@
-package provider
+package mira
 
 import (
 	"regexp"
@@ -7,26 +7,26 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 )
 
-func TestAccDataSourceScaffolding(t *testing.T) {
-	t.Skip("data source not yet implemented, remove this once you add your own code")
+func TestAccResourceMiraAllocatedSubnet(t *testing.T) {
+	t.Skip("resource not yet implemented, remove this once you add your own code")
 
 	resource.UnitTest(t, resource.TestCase{
 		PreCheck:          func() { testAccPreCheck(t) },
 		ProviderFactories: providerFactories,
 		Steps: []resource.TestStep{
 			{
-				Config: testAccDataSourceScaffolding,
+				Config: testAccResourceMiraAllocatedSubnet,
 				Check: resource.ComposeTestCheckFunc(
 					resource.TestMatchResourceAttr(
-						"data.scaffolding_data_source.foo", "sample_attribute", regexp.MustCompile("^ba")),
+						"mira_allocated_subnet_resource.foo", "sample_attribute", regexp.MustCompile("^ba")),
 				),
 			},
 		},
 	})
 }
 
-const testAccDataSourceScaffolding = `
-data "scaffolding_data_source" "foo" {
+const testAccResourceMiraAllocatedSubnet = `
+resource "mira_allocated_subnet_resource" "foo" {
   sample_attribute = "bar"
 }
 `
