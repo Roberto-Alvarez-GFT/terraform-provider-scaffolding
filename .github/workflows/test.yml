@@ -26,11 +26,11 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v2.1.3
       with:
-        go-version: '1.15'
+        go-version: '1.16'
       id: go
 
     - name: Check out code into the Go module directory
-      uses: actions/checkout@v2.4.0
+      uses: actions/checkout@v3
 
     - name: Get dependencies
       run: |
@@ -62,7 +62,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v2.1.3
       with:
-        go-version: '1.15'
+        go-version: '1.16'
       id: go
 
     - uses: hashicorp/setup-terraform@v1
@@ -71,7 +71,7 @@ jobs:
         terraform_wrapper: false
 
     - name: Check out code into the Go module directory
-      uses: actions/checkout@v2.4.0
+      uses: actions/checkout@v3
 
     - name: Get dependencies
       run: |
